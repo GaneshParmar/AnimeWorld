@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./moreInfo.css">
+</head>
+<body>
+    <nav>
+        <div class="heading"><strong>Anime</strong>World</div>
+    </nav>
+    <div class="loader" id="loader">
+        <?xml version="1.0" encoding="utf-8"?>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            style="margin: auto; background: rgb(241, 242, 243); display: block; shape-rendering: auto;"
+            width="50px" height="50px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+            <circle cx="50" cy="50" fill="none" stroke="#1d0e0b" stroke-width="10" r="35"
+                stroke-dasharray="164.93361431346415 56.97787143782138">
+                <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s"
+                    values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
+            </circle>
+        </svg>
+    </div>
+    <div class="container">
+        <div class="anime" id="anime">
+            <!-- <div class="imgwrap">
+                <img src="" alt="" srcset=""/>
+            </div>
+            <div class="contentWrap">
+
+                <div class="info">
+                    <h1>
+
+                    </h1>
+                    <p>
+                        
+                    </p>
+                </div>
+                <div class="teamInfo">
+                    <div>Director <strong></strong></div>
+                    <div>Producer <strong></strong></div>
+                    <p>
+                        Release Date <i></i>
+                    </p>
+                    <p>
+                        Running_time <i></i>
+                    </p>
+                    <p>
+                        Rt_score <i></i>
+                    </p>
+                </div>
+                <div class="pictures">
+                    <h3>Glimpse Of the anime</h3>
+                    <img src="" alt="" srcset="">
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        <p><b>Anime</b>World © 2021-2022</p>
+    </footer>
+
+</body>
+    <script>
+        let params = new URLSearchParams(location.search);
+        
+        let animeId=params.get('animeid');
+
+        // lets get the data using fetch api
+
+        const url="https://ghibliapi.herokuapp.com/films/"+animeId
+        const animeWrap=document.getElementById('anime')
+
+        fetch(url)
+        .then(response => response.json())
+        .then(data=>{
+            loader.classList.add('active');
+                    animeWrap.innerHTML+=`
+            <div class="imgwrap">
+                <img src="${data["image"]}" alt="" srcset=""/>
+            </div>
+            <div class="contentWrap">
+
+                <div class="info">
+                    <h1>
+                        ${data["title"]}
+                    </h1>
+                    <p>
+                        ${data["description"]}
+                    </p>
+                </div>
+                <div class="teamInfo">
+                    <div>Director <strong>${data["director"]}</strong></div>
+                    <div>Producer <strong>${data["producer"]}</strong></div>
+                    <p>
+                        Release Date <i>${data["release_date"]}</i>
+                    </p>
+                    <p>
+                        Running_time <i>${data["runnin_time"]}</i>
+                    </p>
+                    <p>
+                        Rt_score <i>${data["rt_score"]}</i>
+                    </p>
+                </div>
+                <div class="pictures">
+                    <h3>Glimpse Of the anime</h3>
+                    <img src="${data["movie_banner"]}" alt="" srcset="">
+                </div>
+            </div>
+                    
+                    `
+                });
+        
+        
+
+    </script>
+</html>

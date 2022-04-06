@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-size: 17px;
+}
+
+button>a{
+    color: white;
+    text-decoration: none;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    font-size: 25px;
+    padding: 1em;
+    /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+.heading{
+    font-size: 2em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.animeWrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: fit-content;
+    min-height: 70vh;
+}
+
+.animeWrap>.animeCard{
+    width: 40%;
+    max-width: 350px;
+    min-width: 300px;
+    height: fit-content;
+    min-height: 200px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: 1px solid gray;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 0.5em;
+    margin: 10px;
+}
+
+.animeWrap>.animeCard>img{
+    width: 100%;
+}
+
+.animeCard>h4{
+    font-size: 1.3em;
+}
+
+.animeCard>button{
+    padding: 0.5em 1em;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    background-color: black;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.active{
+    display: none;
+}
+
+#loader{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+footer{
+    position: relative;
+    text-align: center;
+    background-color: black;
+    color: #fff;
+    padding: 1em;
+}
+
+@media (max-width:649px) {
+    body{
+        font-size: 14px;
+    }
+    nav{
+        font-size: 20px;
+    }
+}
